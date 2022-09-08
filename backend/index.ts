@@ -2,6 +2,7 @@ import cors from "cors";
 import dotenv from "dotenv";
 import express, { Application, Request, Response } from "express";
 import mongoose from "mongoose";
+import morgan from 'morgan';
 import path from "path";
 import booksRoutes from "./routes/books";
 import usersRoutes from "./routes/users";
@@ -15,6 +16,7 @@ const PORT = process.env.PORT;
 // middleware
 app.use(express.json());
 app.use(cors());
+app.use(morgan('tiny'));
 
 // api endpoints
 // app.get("/", (req: Request, res: Response) => {
