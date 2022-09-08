@@ -30,8 +30,7 @@ function Register(this: any) {
       roles: values.roles
     })).then((response: any) => {
       if (response.error) {
-        toast(response.error.message);
-        return;
+        formik.resetForm();
       } else {
         navigate("/");
       }

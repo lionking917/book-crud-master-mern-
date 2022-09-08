@@ -22,8 +22,7 @@ function Login() {
       password: values.password,
     })).then((response: any) => {
       if (response.error) {
-        toast(response.error.message);
-        return;
+        formik.resetForm();
       } else {
         navigate("/");
       }

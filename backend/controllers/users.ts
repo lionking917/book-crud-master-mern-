@@ -9,6 +9,11 @@ import { User } from "../types";
 async function register(req: Request & { user: User | null }, res: Response) {
   const { username, email, password, roles }: Omit<User, "_id"> = req.body;
 
+  if (!username || !email || !password) {
+    res.status(400).send("Missing username or email or password");
+    return;
+  }
+
   // Check if the user is already existing
   const existingUser = await Users.findOne({ email });
 
