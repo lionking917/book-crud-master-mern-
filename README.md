@@ -9,8 +9,8 @@ A user can have multiple roles.
 
 > All users must register and login in to use our Book Library.
   
-=> `cd backend` && `npm i`
-=> `cd frontend` && `npm i`
-=> Create new .`env` files for each project(You can refer `.env.example` file.)
-=> Run backend (`npm start`)
-=> Run frontend (`npm start`)
+1. `cd backend` && `npm i`
+2. `cd frontend` && `npm i`
+3. Create new .`env` files for each project(You can refer `.env.example` file.)
+4. Run backend (`npm start`)
+5. Run frontend (`npm start`)
