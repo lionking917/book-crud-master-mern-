@@ -36,7 +36,3 @@ export interface SelectOption {
   name: string;
   value: string;
 }
-
-export interface IconProps {
-  className: string;
-}
