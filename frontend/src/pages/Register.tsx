@@ -18,7 +18,7 @@ function Register(this: any) {
   const schema = yup.object().shape({
     username: yup.string().min(3, 'Username must 3 letters at least').required('Username required'),
     email: yup.string().email('Invalid email').required('Email required'),
-    password: yup.string().min(6, 'Password must 3 letters at least').required('Password required'),
+    password: yup.string().min(6, 'Password must 6 letters at least').required('Password required'),
     confirmPassword: yup.string().oneOf([yup.ref('password'), null], 'Passwords must match').required('Confirm password required')
   });
 
@@ -86,7 +86,7 @@ function Register(this: any) {
           value={formik.values.username}
           onChange={setInputValue}
           type="text"
-          error={formik.errors.username}
+          error={formik.touched.username ? formik.errors.username : ''}
         />
         <Input 
           htmlFor="email"
@@ -95,7 +95,7 @@ function Register(this: any) {
           value={formik.values.email}
           onChange={setInputValue}
           type="email"
-          error={formik.errors.email}
+          error={formik.touched.email ? formik.errors.email : ''}
         />
         <Input 
           htmlFor="password"
@@ -104,7 +104,7 @@ function Register(this: any) {
           value={formik.values.password}
           onChange={setInputValue}
           type="password"
-          error={formik.errors.password}
+          error={formik.touched.password ? formik.errors.password : ''}
         />
         <Input 
           htmlFor="confirmPassword"
@@ -113,7 +113,7 @@ function Register(this: any) {
           value={formik.values.confirmPassword}
           onChange={setInputValue}
           type="password"
-          error={formik.errors.confirmPassword}
+          error={formik.touched.confirmPassword ? formik.errors.confirmPassword : ''}
         />
         <div className="flex flex-col space-y-2">
           <label

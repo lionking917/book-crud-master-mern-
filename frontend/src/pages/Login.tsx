@@ -32,7 +32,7 @@ function Login() {
 
   const schema = yup.object().shape({
     email: yup.string().email('Invalid email').required('Email required'),
-    password: yup.string().min(6, 'Password must 3 letters at least').required('Password required'),
+    password: yup.string().min(6, 'Password must 6 letters at least').required('Password required'),
   });
 
   const formik = useFormik<UserLogin>({
@@ -66,7 +66,7 @@ function Login() {
           value={formik.values.email}
           onChange={setInputValue}
           type="text"
-          error={formik.errors.email}
+          error={formik.touched.email ? formik.errors.email : ''}
         />
         <Input 
           htmlFor="password"
@@ -75,7 +75,7 @@ function Login() {
           value={formik.values.password}
           onChange={setInputValue}
           type="password"
-          error={formik.errors.password}
+          error={formik.touched.password ? formik.errors.password : ''}
         />
         <button type="submit" className="flex-grow bg-gray-800 text-white w-full py-1 hover:bg-gray-900">
           {isLoading ? (
